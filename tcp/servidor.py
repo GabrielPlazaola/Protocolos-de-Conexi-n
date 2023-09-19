@@ -20,7 +20,7 @@ client_socket, client_address = server_socket.accept()
 print(f"Conexión establecida con {client_address}")
 
 current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-response = f"{current_time}: Grupo X, Y, Z"
+response = f"{current_time}: Grupo: Gabriel"
 client_socket.send(response.encode())
 
 # Cerrar la conexión

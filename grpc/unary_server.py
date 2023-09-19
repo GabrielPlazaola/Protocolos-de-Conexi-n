@@ -16,7 +16,7 @@ class UnaryService(pb2_grpc.UnaryServicer):
         # get the string from the incoming request
         message = request.message
         current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        result = f'{current_time}: Grupo X, Y, Z'
+        result = f'{current_time}: Grupo: Gabriel'
         result = {'message': result, 'received': True}
 
         return pb2.MessageResponse(**result)

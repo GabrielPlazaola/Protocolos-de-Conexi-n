@@ -8,7 +8,7 @@ PORT = 8080
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        response_message = f'{current_time}: Grupo X, Y, Z'
+        response_message = f'{current_time}: Grupo: Gabriel'
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
