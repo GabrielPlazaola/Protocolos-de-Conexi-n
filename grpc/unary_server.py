@@ -3,6 +3,7 @@ from concurrent import futures
 import time
 import unary_pb2_grpc as pb2_grpc
 import unary_pb2 as pb2
+import time
 
 
 class UnaryService(pb2_grpc.UnaryServicer):
@@ -14,7 +15,8 @@ class UnaryService(pb2_grpc.UnaryServicer):
 
         # get the string from the incoming request
         message = request.message
-        result = f'Hello I am up and running received "{message}" message from you'
+        current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        result = f'{current_time}: Grupo X, Y, Z'
         result = {'message': result, 'received': True}
 
         return pb2.MessageResponse(**result)

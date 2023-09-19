@@ -11,12 +11,8 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((server_ip, server_port))
 print(f"Conectado al servidor en {server_ip}:{server_port}")
 
-while True:
-    message = input("Escribe tu mensaje: ")
-    client_socket.send(message.encode())
-
-    data = client_socket.recv(1024)
-    print(f"Respuesta del servidor: {data.decode()}")
+data = client_socket.recv(1024)
+print(f"Respuesta del servidor: {data.decode()}")
 
 # Cerrar la conexión
 client_socket.close()

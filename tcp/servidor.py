@@ -1,5 +1,6 @@
 # Servidor
 import socket
+import time
 
 # Configurar el servidor
 server_ip = '127.16.0.187'
@@ -18,14 +19,9 @@ print(f"Esperando conexiones en {server_ip}:{server_port}...")
 client_socket, client_address = server_socket.accept()
 print(f"Conexión establecida con {client_address}")
 
-while True:
-    data = client_socket.recv(1024)
-    if not data:
-        break
-    print(f"Mensaje recibido: {data.decode()}")
-
-    response = input("Escribe tu respuesta: ")
-    client_socket.send(response.encode())
+current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+response = f"{current_time}: Grupo X, Y, Z"
+client_socket.send(response.encode())
 
 # Cerrar la conexión
 client_socket.close()
